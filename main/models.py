@@ -12,7 +12,7 @@ class Events(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField()
-    image = models.TextField(upload_to='event-image')
+    # image = models.TextField(upload_to='event-image')
     status = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
 
