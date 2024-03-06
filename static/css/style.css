@@ -36,12 +36,13 @@ a {
 
 .navbar-light .navbar-toggler {
     color: #000 !important;
-    font-weight: 500;
+    font-size: 16px;
     border: none;
 }
 
 .navbar-light .navbar-nav .nav-link  {
     color: #000 !important;
+    padding-left: 15%;
 }
 
 header {
@@ -58,7 +59,7 @@ header {
 }
 
 .logo {
-    height: 120px;
+    height: 70px;
     width: auto;
     padding: 8px 32px;
     margin-top: 32px;
@@ -101,4 +102,13 @@ footer {
 .footer-item {
     padding: 8px 22px;
     color: #fccd04;
+}
+
+/*---------Media Queries-----------------------------*/
+
+@media only screen and (min-width: 576px) {
+
+    .logo {
+        height: 120px;
+    }
 }
