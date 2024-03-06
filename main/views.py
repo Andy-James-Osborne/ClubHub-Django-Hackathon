@@ -36,3 +36,20 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect(request, 'login.html')
+
+def event_details(request, slug):
+    get_event = Events.object.get(slug=slug)
+    get_all_comments = Comment.object.filter(event=get_event)
+    if request.method == 'POST':
+        name = request.POST['name']
+        body = request.POST['body']
+        new_comment = Comment(name=name, body=body, event=get_event)
+        new_comment.save()
+        message.success(request, 'Your comment was successfully uploaded.')
+        return redirect('event-details', slug=slug)
+    get_event = Events.objects.get(slug=slug)
+    context = {
+        'event': get_event,
+        'comment': get_all_comments,
+    }
+    return render(request, 'events.html', context)

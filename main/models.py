@@ -20,7 +20,7 @@ class Events(models.Model):
         return self.title
 
 class Comment(models.Model):
-    post = models.ForeignKey(Events, on_delete=models.CASCADE)
+    event = models.ForeignKey(Events, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
