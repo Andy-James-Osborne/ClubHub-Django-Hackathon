@@ -16,9 +16,8 @@ def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')
+            form.save()
+            return redirect('login')
     else:
         form = UserCreationForm()
     context = {'form' : form}
@@ -40,7 +39,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect(request, 'login.html')
+    return redirect('login')
 
 @login_required
 def event_details(request, slug):
