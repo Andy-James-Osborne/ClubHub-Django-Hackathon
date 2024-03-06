@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Sprite';
+    src: url("../fonts/SpriteGraffiti-Regular.eot") format('opentype'),
+         url("../fonts/SpriteGraffiti-Regular.woff") format('woff'),
+         url("../fonts/SpriteGraffiti-Regular.woff2") format('woff2');
+}
 
 /*--------------------------------------General Styles-------*/
 
@@ -14,6 +20,10 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
+a {
+    color: #000;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -22,12 +32,54 @@ p {
     display: inline-block;
 }
 
+/*-------------Header --------------------*/
+
+.navbar-toggler {
+    color: #000;
+}
+
+header {
+    font-family: "Sprite", "Montserrat", sans-serif;
+    font-size: xx-large;
+    font-weight: 300;
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.logo {
+    height: 120px;
+    width: auto;
+    padding: 8px 32px;
+    margin-top: 32px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+header li {
+    color: #f5721b;
+}
+
+
+.navbar-nav .nav-link {
+    color: black;
+    margin-bottom: 4px;
+  }
+
+/*--------- Footer ----------------------*/
+
 footer {
+    font-family: "Sprite", "Montserrat", sans-serif;
     background-color: #a64ac9;
     color: black;
-    font-size: large;
+    font-size: 20px;
     font-weight: 500;
-    min-height: 20px;
+    min-height: 30px;
     margin: 0;
 }
 
@@ -40,6 +92,6 @@ footer {
 }
 
 .footer-item {
-    padding: 16px;
+    padding: 8px 22px;
     color: #fccd04;
 }
