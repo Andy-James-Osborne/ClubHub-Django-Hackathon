@@ -21,3 +21,20 @@ p {
 .inline-block {
     display: inline-block;
 }
+
+footer {
+    background-color: #970161;
+    color: rgb(245, 114, 27);
+    min-height: 30px;
+    margin: 0;
+    /*vertical-align: bottom;*/
+}
+
+.contact-details {
+    padding-top: 8px;
+}
+
+.footer-item {
+    padding: 16px;
+    color: #f5721b;
+}

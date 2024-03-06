@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,7 @@
     content="club hub, college events, event sharing, college life, campus activities, community engagement">
   <meta name="author" content="Django...">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   {% load bootstrap5 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
