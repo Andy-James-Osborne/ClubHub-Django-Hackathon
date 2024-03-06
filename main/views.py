@@ -1,19 +1,24 @@
 from django.shortcuts import render, redirect
-from .models import User, Events, Comment
+from .models import User, Event, Comment
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    get_all_events = Event.objects.all()
+    context = {
+        'events': get_all_events,
+    }
+    return render(request, 'index.html', context)
 
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')
+            user = form.save()
+            login(request, user)
+            return redirect('home')
     else:
         form = UserCreationForm()
     context = {'form' : form}
@@ -37,8 +42,9 @@ def logout_user(request):
     logout(request)
     return redirect(request, 'login.html')
 
+@login_required
 def event_details(request, slug):
-    get_event = Events.object.get(slug=slug)
+    get_event = Event.objects.get(slug=slug)
     get_all_comments = Comment.object.filter(event=get_event)
     if request.method == 'POST':
         name = request.POST['name']
@@ -46,8 +52,8 @@ def event_details(request, slug):
         new_comment = Comment(name=name, body=body, event=get_event)
         new_comment.save()
         message.success(request, 'Your comment was successfully uploaded.')
-        return redirect('event-details', slug=slug)
-    get_event = Events.objects.get(slug=slug)
+        return redirect('event_details', slug=slug)
+    get_event = Event.objects.get(slug=slug)
     context = {
         'event': get_event,
         'comment': get_all_comments,
