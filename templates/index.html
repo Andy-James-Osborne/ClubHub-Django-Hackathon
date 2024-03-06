@@ -1,87 +1,52 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="ClubHub, designed by Django Dynamos, is a full-stack campus connect website that strives to provide high-quality information about campus events.  It encourages user registration and interaction by offering the opportunity to create, read, update, and delete comments on individual events. Options are also available to share the site through social media (Facebook, X, and Instagram)">
-  <meta name="keywords"
-    content="club hub, college events, event sharing, college life, campus activities, community engagement">
-  <meta name="author" content="Django...">
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
+<!-- index.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
 
-<body>
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for event in events_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                            </div>
+                            <a href="#" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                            </a>
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <div class="container-fluid bg-color-navbar">
-        <a class="navbar-brand" href="index.html">
-          <img src="{% static 'images/clubhub_logo.png' %}" class="d-inline-block align-top logo" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Events</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                {% if user.is_authenticated %}
-                {{ user.username }}
-                {% else %}
-                 Account
+                            <hr />
+                            <p class="card-text text-muted h6">{{ post.created_on}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
                 {% endif %}
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  {% block content %}
-  {% endblock %}
+                {% endfor %}
 
-  <footer class="text-center py-3 fixed-bottom">
-    <div class="container bg-color-footer">
-      <div class="row align-items-center">
-        <div class="col-sm-4 text-start footer-copyright d-none d-sm-inline-block">
-          <div>© 2024 Django Dynamos</div>
+            </div>
         </div>
-        <div class="col-sm-8">
-          <div id="footer-icons" class="text-center text-sm-end">
-            <a href="https://en-gb.facebook.com/" target="_blank" rel="noopener"
-              aria-label="Visit our Facebook page (opens in a new tab)"><i
-                class="footer-item fa-brands fa-facebook"></i></a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener"
-              aria-label="Visit our X page (opens in a new tab)"><i class="footer-item fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-              aria-label="Visit our Instagram page (opens in a new tab)"><i
-                class="footer-item fa-brands fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
     </div>
-  </footer>
-  <script src="https://kit.fontawesome.com/3c09670cc8.js" crossorigin="anonymous"></script>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
 
-</body>
-
-</html>
+<!-- index.html content ends here -->
+{% endblock %}
