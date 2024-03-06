@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*--------------------------------------General Styles-------*/
 
@@ -6,12 +6,12 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
 }
 
 p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .uppercase {
@@ -23,11 +23,16 @@ p {
 }
 
 footer {
-    background-color: #970161;
-    color: rgb(245, 114, 27);
-    min-height: 30px;
+    background-color: #a64ac9;
+    color: black;
+    font-size: large;
+    font-weight: 500;
+    min-height: 20px;
     margin: 0;
-    /*vertical-align: bottom;*/
+}
+
+.footer-item {
+    font-size: 30px;
 }
 
 .contact-details {
@@ -36,5 +41,5 @@ footer {
 
 .footer-item {
     padding: 16px;
-    color: #f5721b;
+    color: #fccd04;
 }
