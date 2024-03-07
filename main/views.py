@@ -44,7 +44,7 @@ def logout_user(request):
 @login_required
 def event_details(request, slug):
     get_event = Event.objects.get(slug=slug)
-    get_all_comments = Comment.object.filter(event=get_event)
+    get_all_comments = Comment.objects.filter(event=get_event)
     if request.method == 'POST':
         name = request.POST['name']
         body = request.POST['body']
