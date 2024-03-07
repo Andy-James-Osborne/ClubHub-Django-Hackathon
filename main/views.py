@@ -4,14 +4,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-def home(request):
-    get_all_events = Event.objects.all()
-    context = {
-        'events': get_all_events,
-    }
-    return render(request, 'index.html', context)
-
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -40,21 +32,3 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
-
-@login_required
-def event_details(request, slug):
-    get_event = Event.objects.get(slug=slug)
-    get_all_comments = Comment.object.filter(event=get_event)
-    if request.method == 'POST':
-        name = request.POST['name']
-        body = request.POST['body']
-        new_comment = Comment(name=name, body=body, event=get_event)
-        new_comment.save()
-        message.success(request, 'Your comment was successfully uploaded.')
-        return redirect('event_details', slug=slug)
-    get_event = Event.objects.get(slug=slug)
-    context = {
-        'event': get_event,
-        'comment': get_all_comments,
-    }
-    return render(request, 'events.html', context)
