@@ -32,6 +32,10 @@ a {
     display: inline-block;
 }
 
+main {
+    margin-top: 178px;
+}
+
 /*-------------Header --------------------*/
 
 .navbar-light .navbar-toggler {
