@@ -4,9 +4,14 @@
     ClubHub | Home
 {% endblock title %}
 
+{% block h1 %}
+    <h1>College Events</h1>
+    <hr>
+{% endblock %}
 {% block content %}
     {% block posts %}
         {% for post in posts %}
+    
             <h3><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h3>
             <small>
                 {{ post.created_on.date }} | Categories:
