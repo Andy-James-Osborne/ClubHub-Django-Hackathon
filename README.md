@@ -1,110 +1,349 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1>ClubHub by the Django Dynamos</h1>
 
-Welcome Andy Osborne,
+<strong>Table of Contents</strong>
+<ol>
+<li>Introduction</li>
+<li>Features</li>
+<li>Wireframes</li>
+<li>Responsiveness</li>
+<li>Browser Compatibility</li>
+<li>Code Validation</li>
+<li>Deployment</li>
+<li>User Story Tests</li>
+<li>Bugs Solved</li>
+<li>Bugs Unresolved</li>
+<li>Future Sprints</li>
+<li>Credits/Sources</li>
+</ol>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<h2>Introduction</h2>
+ClubHub, designed by Django Dynamos, is a full-stack campus connect website that strives to provide high-quality information about campus events.  It encourages user registration and interaction by offering the opportunity to create, read, update, and delete comments on individual events. Options are also available to share the site through social media (Facebook, X, and Instagram).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+<h2>Features</h2>
 
-## Gitpod Reminders
+<h3>Header & Footer</h3>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The header consists of the ClubHub logo on the left and the account options on the right.  The footer includes links to social media (Facebook, X, and Instagram).
 
-`python3 -m http.server`
+<img src="./static/images/header.png" width="800">
 
-A blue button should appear to click: _Make Public_,
+<img src="./static/images/footer.png" width="800">
 
-Another blue button should appear to click: _Open Browser_.
+<h3>Account Registration</h3>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Users may register for an account, which requires a unique username of 150 characters or fewer and only letters, numbers, and select characters: _/+/-/./@. The password may not be too similar to the username, a commonly used password, or entirely numbers.  It must be at least 8 characters long. The password entry field is repeated for confirmation of accuracy.
 
-A blue button should appear to click: _Make Public_,
+<h3>Login</h3>
 
-Another blue button should appear to click: _Open Browser_.
+A dedicated login zone is linked to the ‘LOGIN’ tab at the upper left and allows the user to log into their account.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<h3>Logout</h3>
 
-To log into the Heroku toolbelt CLI:
+Logging out is completed by lowering the drop-down menu under ‘ACCOUNT’ in the upper right hand.  This allows the user to safely log out of the site.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<h3>Events Page</h3>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+The main page of this exciting campus connect-style site, the Events Page displays truncated versions of the full descriptions.  Events are labelled according to category: fitness, mental health & wellbeing, donating, historic, clubs, entertainment, travel, and geography.
 
-------
+<h3>Event Details</h3>
 
-## Release History
+Clicking on any one of the events will take the user to the individual event’s details. The events are described in full here, according to information supplied by the clubs and/or organising bodies.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<h3>Create Comments</h3>
 
-**September 20 2023:** Update Python version to 3.9.17.
+A user may create a comment on an event when viewing the individual event details. 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+<h2>Wireframes</h2>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Wireframes were created using Balsamiq. The original plans were:
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<img src="./static/images/register_wireframe.png" width="600">
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+<img src="./static/images/login_wireframe.png" width="600">
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+<img src="./static/images/events_list_wireframe.png" width="600">
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+<img src="./static/images/event_detail_wireframe.png" width="600">
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<h2>Responsiveness</h2>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<img src="./static/images/responsiveness.png" width="800">
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+<table>
+<tr>
+    <th>Responsivity</th>
+    <th>Smartphone</th>
+    <th>Tablet</th>
+    <th>PC</th>
+    <th>Notes</th>
+</tr>
+   <tr>
+    <td>Site is responsive >=700px</td>
+    <td>n/a</td>
+    <td>n/a</td>
+    <td>Yes</td>
+    <td></td>
+  </tr>
+<tr>
+    <td>Site is responsive < 699px</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>n/a</td>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Links/URLs work</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+</tr>
+<tr>
+    <td>Images work</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Next sprint</td>
+</tr>
+<tr>
+    <td>Renders as expected</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+</tr>
+<tr>
+    <td>Comments created as expected</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+</tr>
+<tr>
+    <td>Notifications on successful login</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Next sprint</td>
+</tr>
+<tr>
+    <td>Notifications on successful creation</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Next sprint</td>
+</tr>
+<tr>
+    <td>Comments edited as expected</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Next sprint</td>
+</tr>
+<tr>
+    <td>Comments deleted as expected</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Next sprint</td>
+</tr>
+<tr>
+    <td>Notifications on successful logout</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Next sprint</td>
+</tr>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+</table>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+<h2>Browser Compatibility</h2>
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<table>
+<tr>
+    <th></th>
+    <th>Edge</th>
+    <th>Chrome</th>
+    <th>Firefox</th>
+    <th>Notes</th>
+</tr>
+   <tr>
+    <td>Intended appearance?</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+  </tr>
+<tr>
+    <td>Intended responsiveness?</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+</tr>
+</table>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+<h2>Code Validation</h2>
 
-------
+HTML code was validated using https://validator.w3.org/
 
-## FAQ about the uptime script
+CSS code was validated using https://jigsaw.w3.org/css-validator/ 
 
-**Why have you added this script?**
+Errors related to Django were ignored.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+<img src="./static/images/validator_results.png" width="600">
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+<h2>Deployment</h2>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+ClubHub was successfully deployed at the end of each day, starting on Tuesday, March 5th at https://clubhub-hackathon-b9a3eaef9007.herokuapp.com. It was re-deployed at the end of every day of the Hackathon.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+<h2>User Story Tests</h2>
+<table>
+    <tr>
+        <th></th>
+        <th>User Story</th>
+        <th>MOSCOW</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Open a post: As a Site User, I can click on a post/event so that I can read the full text. </td>
+        <td>Must have</td>
+        <td>Pass</td>
+    </tr>
+        <tr>
+        <td>2</td>
+        <td>View comments: As a Site User / Admin I can view comments on an individual post/event so that I can read the conversation. </td>
+        <td>Must have</td>
+        <td>Pass</td>
+    </tr>
+        <tr>
+        <td>3</td>
+        <td>Account registration: As a Site User I can register an account so that I can comment on a post/event.</td>
+        <td>Must have</td>
+        <td>Pass</td>
+    </tr>
+        <tr>
+        <td>4</td>
+        <td>Comment on a post: As a Site User I can leave comments on a post/event so that I can be involved in the conversation. </td>
+        <td>Must have</td>
+        <td>Pass</td>
+    </tr>
+        <tr>
+        <td>5</td>
+        <td>Manage posts: As a Site Admin I can create, read, update and delete posts so that I can manage my site content.</td>
+        <td>Must have</td>
+        <td>Pass</td>
+    </tr>
+        <tr>
+        <td>6</td>
+        <td>Modify or delete comment on a post: As a Site User I can modify or delete my comment on a post/event that I can be involved in the conversation. </td>
+        <td>Should have</td>
+        <td>Next sprint</td>
+    </tr>
+        <tr>
+        <td>7</td>
+        <td>Approve comments: As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments. </td>
+        <td>Should have</td>
+        <td>Next sprint</td>
+    </tr>
+        <tr>
+        <td>8</td>
+        <td>View paginated list of posts: As a site user, I can view a paginated list of posts so that I can select which post I want to view. </td>
+        <td>Should have</td>
+        <td>Next sprint</td>
+    </tr>
+        <tr>
+        <td>9</td>
+        <td>Create drafts: As a Site Admin I can create draft posts so that I can finish writing the content later.</td>
+        <td>Could have</td>
+        <td>Next sprint</td>
+    </tr>
+        <tr>
+        <td>10</td>
+        <td>Search function: As a user, I want to search for courses and interests so I can find my hobbies easily. </td>
+        <td>Won't have</td>
+        <td>Next sprint?</td>
+    </tr>
+</table>
 
-**So….?**
+<h2>Bugs Solved</h2>
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+<table>
+    <tr>
+        <th>Bug/Issue</th>
+        <th>Image</th>
+        <th>Resolution</th>
+    </tr>
+    <tr>
+        <td>Unregistered users can comment</td>
+        <td><img src="./static/images/unregistered_user.png" width="400"></td>
+        <td>Code added so that only registered users may view event details.
+        <img src="./static/images/login_required.png" width="400"></td>
+    </tr>
+    <tr>
+        <td>Couldn’t check responsiveness from Heroku</td>
+        <td></td>
+        <td>Used gitpod.io with an unlocked port
+        <img</td>
+    </tr>
+</table>
 
-**Can I opt out?**
+<h2>Bugs Unresolved</h2>
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+<table>
+    <tr>
+        <th>Bug/Issue</th>
+        <th>Image</th>
+        <th>Information</th>
+    </tr>
+    <tr>
+        <td>Categories page empty/not linked</td>
+        <td><img src="./static/images/category_undefined.png" width="400"></td>
+        <td>Next sprint</td>
+    </tr>
+    <tr>
+        <td>In tablet & phone mode, the drop-down menu is on the left.</td>
+        <td><img src="./static/images/drop_down_on_left.png" width="400"></td>
+        <td>Next sprint</td>
+    </tr>
+</table>
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+<h2>Future Sprints</h2>
 
-**Anything more?**
+Future sprints may include:
+<ul>
+<li>Modify or delete comment on a post</li>
+<li>Approve comments</li>
+<li>View paginated list of posts</li>
+<li>Create drafts</li>
+<li>Images</li>
+<li>Search function</li>
+<li>Summernote implementation for WYSISYG text</li>
+</ul>
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+<h2>Credits/Sources</h2>
 
----
+Font chosen from Google Fonts: Montserrat https://fonts.google.com/specimen/Montserrat 
+Font for menu items: Sprite Graffiti
 
-Happy coding!
+Favicon from Font Awesome: https://fontawesome.com/icons/globe?f=classic&s=solid
+
+Club descriptions made using ChatGPT 3.5: https://chat.openai.com/ 
+
+Logo created with Canva: https://www.canva.com/ 
+	
+Images compressed with https://tiny-img.com/image-compressor/
+
+Colour Scheme, ‘Youthful and Fun’, from https://visme.co/blog/website-color-schemes/ 
+
+Django walkthrough - https://realpython.com/build-a-blog-from-scratch-django/ 
