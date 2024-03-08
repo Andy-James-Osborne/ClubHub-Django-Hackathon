@@ -53,7 +53,7 @@ def blog_category(request, category):
     }
     return render(request, "blog/category.html", context)
 
-
+@login_required(login_url='login')
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
     form = CommentForm()
